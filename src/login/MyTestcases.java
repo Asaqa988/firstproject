@@ -1,5 +1,7 @@
 package login;
 
+import static org.testng.Assert.assertEquals;
+
 import java.awt.Checkbox;
 import java.time.Duration;
 import java.util.List;
@@ -10,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -34,9 +37,11 @@ public class MyTestcases {
 
 	}
 
-	@Test(priority = 1, enabled = false)
+	@Test(priority = 1, enabled = true)
 
 	public void SignUp() throws InterruptedException {
+
+		String confirmationMessage = " Your Account Has Been Created!";
 
 		driver.navigate().to("https://automationteststore.com/index.php?rt=account/create");
 
@@ -121,21 +126,31 @@ public class MyTestcases {
 
 		CheckBox.click();
 		ContinueButton.click();
-		String myname = "ahmad";
-		;
+		Thread.sleep(1000);
+
+		boolean ActualResult = driver.getPageSource().contains(confirmationMessage);
+		// boolean ActualResult =
+		// driver.findElement(By.className("maintext")).isDisplayed();
+		Assert.assertEquals(ActualResult, true, "this is to check if the account is created");
+
 	}
 
-	@Test(priority = 2, enabled = false)
+	@Test(priority = 2, enabled = true)
 	public void Logout() throws InterruptedException {
-
+		String logoutConfirmationMessage = "You have been logged off your account. It is now safe to leave the computer.";
 		Thread.sleep(2000);
 		WebElement Logout = driver.findElement(By.linkText("Logoff"));
 
 		Logout.click();
+		boolean actualResults = driver.getPageSource().contains(logoutConfirmationMessage);
+
+		Assert.assertEquals(actualResults, true,"this is to check that the user has been logged out");
+
 	}
 
-	@Test(priority = 3, enabled = false)
+	@Test(priority = 3, enabled = true)
 	public void Login() {
+		String loginconfirmationMessage = "Welcome back"; 
 		WebElement Loginorregister = driver.findElement(By.partialLinkText("Login or re"));
 		Loginorregister.click();
 
@@ -146,34 +161,53 @@ public class MyTestcases {
 		password.sendKeys(TheLoginPassword);
 
 		driver.findElement(By.xpath("//button[@title='Login']")).click();
+		
+		boolean actualResults = driver.getPageSource().contains(loginconfirmationMessage);
+
+		Assert.assertEquals(actualResults, true,"this is to check that the user has been logged in");
+
 	}
 
-	@Test(priority = 4)
+	@Test(priority = 4, enabled = true)
 
 	public void addItemToThecart() throws InterruptedException {
+		
+		String CheckoutURL = "https://automationteststore.com/index.php?rt=checkout/cart";
+		
+		String HomePageInCaseItemNotInTheStock = "https://automationteststore.com/";
 		driver.navigate().to("https://automationteststore.com/");
 		String[] sectionsNames = { "featured", "latest", "bestseller", "special" };
 		int randomSectionIndex = rand.nextInt(sectionsNames.length);
-		WebElement TheFeatured = driver.findElement(By.id(sectionsNames[randomSectionIndex]));
-		List<WebElement> AllItems = TheFeatured.findElements(By.className("prdocutname"));
+		WebElement TheCategory = driver.findElement(By.id(sectionsNames[randomSectionIndex]));
+		List<WebElement> AllItems = TheCategory.findElements(By.className("prdocutname"));
 		int randomProduct = rand.nextInt(AllItems.size());
 		AllItems.get(randomProduct).click();
 		Thread.sleep(2000);
 
 		String ProductPage = driver.findElement(By.className("productpagecart")).getText();
 
+		System.out.println(ProductPage);
+
 		if (ProductPage.equals("Out of Stock")) {
 			driver.navigate().back();
 			System.out.println("sorry the item is not available");
+			Thread.sleep(2000);
+
+			driver.getCurrentUrl().equals(HomePageInCaseItemNotInTheStock);
 		} else {
 			System.out.println(driver.getCurrentUrl());
 			if (driver.getCurrentUrl().contains("product_id=116")) {
 				Thread.sleep(2000);
-				System.out.println("@@@@@@@@@@@@@");
 				driver.findElement(By.xpath("//label[@for='option344747']")).click();
 
 			}
 			driver.findElement(By.partialLinkText("Add to Cart")).click();
+			
+			Thread.sleep(2000);
+			boolean actualResult = 	driver.getCurrentUrl().equals(CheckoutURL); 
+			
+			Assert.assertEquals(actualResult, true); 
+			
 		}
 	}
 }

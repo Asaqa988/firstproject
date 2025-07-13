@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\asaqa\AppData\Local\Temp\testng-eclipse-432308084\testng-customsuite.xml</span>
+                    <span>C:\Users\asaqa\AppData\Local\Temp\testng-eclipse--677305225\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">4 methods,   4 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -101,6 +101,21 @@
                       <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
                     </span>
                     <div class="method-list-content passed suite-Default_suite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="login.MyTestcases" class="method navigator-link" hash-for-method="Login">Login</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="login.MyTestcases" class="method navigator-link" hash-for-method="Logout">Logout</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="login.MyTestcases" class="method navigator-link" hash-for-method="SignUp">SignUp</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_suite" title="login.MyTestcases" class="method navigator-link" hash-for-method="addItemToThecart">addItemToThecart</a> <!-- method navigator-link -->
@@ -126,6 +141,27 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
+                  <a name="Login">
+                  </a> <!-- Login -->
+                  <span class="method-name">Login</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="Logout">
+                  </a> <!-- Logout -->
+                  <span class="method-name">Logout</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="SignUp">
+                  </a> <!-- SignUp -->
+                  <span class="method-name">SignUp</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="addItemToThecart">
                   </a> <!-- addItemToThecart -->
                   <span class="method-name">addItemToThecart</span>
@@ -136,7 +172,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\asaqa\AppData\Local\Temp\testng-eclipse-432308084\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\asaqa\AppData\Local\Temp\testng-eclipse--677305225\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -185,16 +221,28 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(4);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'addItemToThecart')
+data.setCell(0, 1, 'SignUp')
 data.setCell(0, 2, 'login.MyTestcases')
-data.setCell(0, 3, 4757);
+data.setCell(0, 3, 8379);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'addItemToThecart')
+data.setCell(1, 2, 'login.MyTestcases')
+data.setCell(1, 3, 7662);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'Logout')
+data.setCell(2, 2, 'login.MyTestcases')
+data.setCell(2, 3, 3088);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'Login')
+data.setCell(3, 2, 'login.MyTestcases')
+data.setCell(3, 3, 2180);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 4 seconds</span>
+              <span class="suite-total-time">Total running time: 21 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -209,20 +257,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">3 ignored methods</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">login.MyTestcases</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">Login</span>
-                <br/>
-                <span class="ignored-method-name">Logout</span>
-                <br/>
-                <span class="ignored-method-name">SignUp</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -237,8 +274,20 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
+                <span class="method-name">SignUp</span>
+                <span class="method-start">1998 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Logout</span>
+                <span class="method-start">10420 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">Login</span>
+                <span class="method-start">13520 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
                 <span class="method-name">addItemToThecart</span>
-                <span class="method-start">2573 ms</span>
+                <span class="method-start">15716 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
